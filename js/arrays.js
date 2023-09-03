@@ -40,3 +40,26 @@ const characters = [
         isActive: true,
     },
 ];
+
+const navButtons = [
+    {
+        id: 1,
+        nombre: "Ver lista de personajes"
+    },
+    {
+        id: 2,
+        nombre: "Ver personajes activos"
+    },
+    {
+        id: 3,
+        nombre: "Ver personajes inactvos"
+    },
+    {
+        id: 4,
+        nombre: "Búsqueda avanzada"
+    },
+    {
+        id: 5,
+        nombre: "Crear personaje"
+    },
+];
