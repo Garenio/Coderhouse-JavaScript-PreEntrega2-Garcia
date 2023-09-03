@@ -44,22 +44,22 @@ const characters = [
 const navButtons = [
     {
         id: 1,
-        nombre: "Ver lista de personajes"
+        btnName: "Ver lista de personajes"
     },
     {
         id: 2,
-        nombre: "Ver personajes activos"
+        btnName: "Ver personajes activos"
     },
     {
         id: 3,
-        nombre: "Ver personajes inactvos"
+        btnName: "Ver personajes inactvos"
     },
     {
         id: 4,
-        nombre: "Búsqueda avanzada"
+        btnName: "Búsqueda avanzada"
     },
     {
         id: 5,
-        nombre: "Crear personaje"
+        btnName: "Crear personaje"
     },
 ];
