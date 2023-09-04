@@ -1,26 +1,27 @@
-//let divEnDom = document.getElementById("div-content")
-
 function contentMaker(searchTitle, list) {
-    let title = searchTitle;
-    list.forEach((el) => title += `
+    let searchContent = searchTitle;
+    list.forEach((el) => searchContent += `
     ${el.charName} (id: ${el.id})
     \nNivel actual: ${el.level} | Oro: ${el.gold} | Raza: ${el.race} | Clase: ${el.charClass} 
     \nJugador: ${el.playerName}
-    \n__________________________________________________
+    \n_______________________________________________________________
     `);
 
-    return title;
+    return searchContent;
 }
 
 function characterList() {
-    let title = contentMaker("Listado de personaes: \n\n", characters);
+    let searchContent = contentMaker("Listado de personajes: \n\n", characters);
 
     if (document.getElementById("div-content")) {
-        document.getElementById("div-mensaje").innerHTML = "";
+        document.getElementById("div-content").innerHTML = "";
+        setTimeout(() => {
+            document.getElementById("div-content").innerText = searchContent
+        }, 100);
     } else {
         let divContent = document.createElement("div");
         divContent.id = "div-content";
-        divContent.innerText = title
+        divContent.innerText = searchContent
         document.body.append(divContent);
     }
 };
