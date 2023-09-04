@@ -149,6 +149,35 @@ function searchByRace() {
 
 };
 
+function searchByClass() {
+
+    let entryClass;
+
+    entryClass = prompt("Ingrese una Clase:")
+
+    if (characters.some(el => el.charClass === entryClass)) {
+
+        let charByClass = characters.filter((el) => el.charClass === entryClass);
+        let searchContent = contentMaker(`PERSONAJES DE CLASE ${entryClass}\n\n`, charByClass);
+
+        if (document.getElementById("div-content")) {
+            document.getElementById("div-content").innerHTML = "";
+            setTimeout(() => {
+                document.getElementById("div-content").innerText = searchContent
+            }, 100);
+        } else {
+            let divContent = document.createElement("div");
+            divContent.id = "div-content";
+            divContent.innerText = searchContent;
+            document.body.append(divContent);
+        }
+    }else{
+        alert(`No existen personajes de la clase ${entryClass}.`);
+        return advancedSearch();
+    }
+
+};
+
 function choise(btnValue) {
     switch (btnValue) {
         case 1:
