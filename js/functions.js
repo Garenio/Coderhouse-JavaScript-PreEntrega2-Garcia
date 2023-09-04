@@ -178,6 +178,74 @@ function searchByClass() {
 
 };
 
+function giveGold() {
+
+    let goldChoise;
+
+    goldChoise = parseInt(prompt("Selecciona una opción:\n\n1. Dar oro a un jugador.\n2. Dar oro a todos los jugadores.\n3. Cancelar"));
+
+    switch (goldChoise) {
+        case 1:
+            giveGoldToPlayer();
+            break;
+        case 2:
+            giveGoldToAll();
+            break;
+        case 3:
+            break;
+        default:
+            alert("Ingresa una opción válida.")
+            return giveGold()
+    }
+}
+
+function giveGoldToPlayer(){
+
+    charNameToGiveGold = prompt("Ingrese el nombre del personaje:");
+
+    if (characters.some(el => el.charName === charNameToGiveGold)) {
+
+        goldQty = parseInt(prompt("Ingrese la cantidad de oro:"));
+        charIndex = characters.findIndex(obj => obj.charName === charNameToGiveGold);
+        characters[charIndex].gold += goldQty;
+
+        alert(`Has agregado ${goldQty} gold al personaje ${charNameToGiveGold}.`)
+
+    }else {
+        alert("No existe un personaje con ese nombre.");
+        return giveGold();
+    }
+}
+
+function giveGoldToAll(){
+
+    goldQty = parseInt(prompt("Ingrese la cantidad de oro:"));
+
+    for (const character of characters) {
+        character.gold += goldQty;
+    }
+
+    alert(`Se han agregado ${goldQty} gold a todos los personajes.`)
+
+}
+
+function giveLevel(){
+
+    charNameToGiveLevel = prompt("Ingrese el nombre del personaje:");
+
+    if (characters.some(el => el.charName === charNameToGiveLevel)) {
+
+        levelQty = parseInt(prompt("Ingrese la cantidad de niveles:"));
+        charIndex = characters.findIndex(obj => obj.charName === charNameToGiveLevel);
+        characters[charIndex].level += levelQty;
+
+        alert(`Has agregado ${levelQty} niveles al personaje ${charNameToGiveLevel}.`)
+
+    }else {
+        alert("No existe un personaje con ese nombre.");
+    }
+}
+
 function choise(btnValue) {
     switch (btnValue) {
         case 1:
@@ -188,6 +256,10 @@ function choise(btnValue) {
             return inactiveCharacterList();     
         case 4:
             return advancedSearch();     
+        case 5:
+            return giveGold();     
+        case 6:
+            return giveLevel();     
         default:
             break;
     }

@@ -120,6 +120,14 @@ const navButtons = [
     },
     {
         id: 5,
+        btnName: "Dar Oro"
+    },
+    {
+        id: 6,
+        btnName: "Dar Nivel"
+    },
+    {
+        id: 7,
         btnName: "Crear personaje"
     },
 ];
