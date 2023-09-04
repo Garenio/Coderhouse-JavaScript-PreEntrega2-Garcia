@@ -71,7 +71,7 @@ function advancedSearch() {
 
     let parameter;
 
-    parameter = parseInt(prompt("Selecciona un parámetro de búsqueda:\n\n1. Buscar por Nombre de Jugador.\n2. Buscar por Raza.\n3. Buscar por Clase.\n4. Cancelar"));
+    parameter = parseInt(prompt("Selecciona un parámetro de búsqueda:\n\n1. Buscar por nombre de Jugador.\n2. Buscar por Raza.\n3. Buscar por Clase.\n4. Cancelar"));
 
     switch (parameter) {
         case 1:
@@ -114,7 +114,37 @@ function searchByPlayerName() {
             document.body.append(divContent);
         }
     }else{
-        alert("No existen personajes asociados a ese jugador.")
+        alert(`No existen personajes del jugador ${entryPlayerName}.`);
+        return advancedSearch();
+    }
+
+};
+
+function searchByRace() {
+
+    let entryRace;
+
+    entryRace = prompt("Ingrese una Raza:")
+
+    if (characters.some(el => el.race === entryRace)) {
+
+        let charByRace = characters.filter((el) => el.race === entryRace);
+        let searchContent = contentMaker(`PERSONAJES DE RAZA ${entryRace}\n\n`, charByRace);
+
+        if (document.getElementById("div-content")) {
+            document.getElementById("div-content").innerHTML = "";
+            setTimeout(() => {
+                document.getElementById("div-content").innerText = searchContent
+            }, 100);
+        } else {
+            let divContent = document.createElement("div");
+            divContent.id = "div-content";
+            divContent.innerText = searchContent;
+            document.body.append(divContent);
+        }
+    }else{
+        alert(`No existen personajes de raza ${entryRace}.`);
+        return advancedSearch();
     }
 
 };
