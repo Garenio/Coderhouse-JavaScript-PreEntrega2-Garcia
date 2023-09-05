@@ -1,5 +1,5 @@
 class Character{
-    constructor(id, charName, charClass, race, level=1, gold=10, playerName){
+    constructor(id, charName, race, charClass, playerName, level=1, gold=10){
         this.id = id;
         this.charName = charName;
         this.race = race;

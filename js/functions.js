@@ -246,6 +246,45 @@ function giveLevel(){
     }
 }
 
+function createCharacter() {
+
+    let id = parseInt(prompt("Ingrese el ID del personaje:"));
+    if (characters.some(el => el.id === id)) {
+        alert("Ya existe un personaje con la id " + id);
+    } else {
+        let charName = prompt("Ingrese el nombre del personaje:");
+        if (charName == "") {
+            alert("No es posible colocar un dato vacío.");
+
+        }else {
+            let race = prompt("Ingrese una raza:");
+            if (race == "") {
+                alert("No es posible colocar un dato vacío.");
+    
+            }else {
+                let charClass = prompt("Ingrese una clase:");
+                if (charClass == "") {
+                    alert("No es posible colocar un dato vacío.");
+        
+                }else{
+                    let playerName = prompt("Ingrese su nombre:");
+                    if (playerName == "") {
+                        alert("No es posible colocar un dato vacío.");
+            
+                    }else{
+                        let newCharacter = new Character(id, charName, race, charClass, playerName);
+                        characters.push(newCharacter);
+
+                        alert(`Se ha creado al personaje ${charName} correctamente.`)
+                    }
+                }
+            }
+        }
+    }
+
+    alert("La creación de personajes ha finalizado.")
+};
+
 function choise(btnValue) {
     switch (btnValue) {
         case 1:
@@ -260,6 +299,8 @@ function choise(btnValue) {
             return giveGold();     
         case 6:
             return giveLevel();     
+        case 7:
+            return createCharacter();     
         default:
             break;
     }
